@@ -1,13 +1,12 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
 import { useLogout } from "@/shared/usecase/useLogout";
 import { useToken } from "@/shared/usecase/useToken";
 
 export default function Navbar() {
-  const pathname = usePathname();
   const router = useRouter();
   const token = useToken();
   const { logout } = useLogout();
