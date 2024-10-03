@@ -1,23 +1,26 @@
 "use client";
 
-import Link from "next/link";
 import Button from "../Button/Button";
 import { dateTimeFormatter } from "@/shared/usecase/dateTimeFormatter";
 import { actionUpdateDocument } from "@/app/(main)/administrator/usecase/actionUpdateDocument";
 
 interface ITableProps {
   id: string;
-  user_name: string;
+  name: string;
   type: string;
   number: string;
-  created_at: string;
+  date: string;
   user_id: string;
   status: number;
 }
 
 export default function Table({ data }: { data: ITableProps[] | null }) {
   if (data == null) {
-    return <div>Tidak ada permintaan verifikasi</div>;
+    return (
+      <div className="flex justify-center items-center font-semibold text-36">
+        Tidak ada permintaan verifikasi
+      </div>
+    );
   }
   const { updateDocument } = actionUpdateDocument();
   const onUpdate = async (id: string, status: number) => {
@@ -38,10 +41,10 @@ export default function Table({ data }: { data: ITableProps[] | null }) {
         <tbody>
           {data.map((document, index) => (
             <tr key={index}>
-              <td>{document.user_name}</td>
+              <td>{document.name}</td>
               <td>{document.type}</td>
               <td>{document.number}</td>
-              <td>{dateTimeFormatter(document.created_at)}</td>
+              <td>{dateTimeFormatter(document.date)}</td>
               <td>
                 <Button
                   variant="danger"

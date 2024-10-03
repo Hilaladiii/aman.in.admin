@@ -27,6 +27,7 @@ export async function updateDocumentRepository(
       body: JSON.stringify({ status }),
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
     }
   );

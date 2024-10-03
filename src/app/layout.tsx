@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
-import AppShell from "@/shared/container/Layouts/AppShell";
 
 export const metadata: Metadata = {
   title: "aman.in",

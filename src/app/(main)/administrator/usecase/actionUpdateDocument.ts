@@ -4,6 +4,7 @@ import { getCookie } from "cookies-next";
 
 export function actionUpdateDocument() {
   const token = getCookie("token")?.toString();
+
   const updateDocument = async (id: string, status: number) => {
     const res = await updateDocumentRepository(id, status, token!);
     if (res.status == "success") {
